@@ -1,0 +1,35 @@
+@mixin text ($color) {
+   font-size: 35px;
+   line-height: 24px;
+   font-weight: 900;
+   text-transform: uppercase;
+   letter-spacing: -0.025em;
+   color: $color;
+   padding-bottom: 10px;
+}
+@mixin text_P ($second_text) {
+   font-size: 16px;
+   font-weight: 300;
+   text-transform: none;
+   letter-spacing: normal;
+   color: $second_text;
+}
+
+@mixin btn($borderColor, $btnTextColor, $bgColor) {
+   @extend %btn;
+   border: 1px solid $borderColor;
+   color: $btnTextColor;
+   background-color: $bgColor;
+}
+
+@mixin labelDefault($icon) {
+   position: relative;
+   &:after {
+      @extend %bootstrapIconBase;
+      content: $icon;
+   }
+
+   &:hover:after {
+      color: #e7ad48;
+   }
+}

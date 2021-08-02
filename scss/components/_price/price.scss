@@ -1,0 +1,105 @@
+.price{
+   background-color: #e7edf3;
+   padding: 145px 0;
+   .price_text{
+      text-align: center;
+      padding-bottom: 50px;
+      h2{
+         @include text(#394b50);
+      }
+      p{
+         @include text_P (#75888d);
+      }
+   }
+   .row{ 
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+      button{
+         width: 131px;
+         height: 42px;
+         background-color: $bg-col;
+         font-family: Lato;
+         font-size: 14px;
+         line-height: 1.2;
+         font-weight: 400;
+         text-transform: uppercase;
+         color: $text-col;
+         border-style: none;
+         margin-top: 35px;
+      }
+      h4{
+         font-size: 25px;
+         line-height: 22px;
+         font-weight: 300;
+         text-transform: uppercase;
+         color: #818b95;
+         padding-bottom: 40px;
+      }
+      h6{
+         span{
+            font-size: 35px;
+            vertical-align: super;
+         }
+         padding-bottom: 40px ;
+         &:nth-child(2){
+        font-family: Lato;
+        font-size: 60px;
+        line-height: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $bg-col;
+        padding-bottom: 20px;
+         }
+         &:nth-child(3){
+           font-size: 20px;
+           font-weight: 300;
+           text-transform: none;
+           color: #818b95;
+         }  
+      }
+      p{
+         @extend .message;
+         color: #b5bbc1;
+      }
+      .one_price,
+      .thrid_price{
+       width: 33%;
+       padding: 30px 0;
+         div{
+            padding: 55px 35px;
+            border-radius: 5px;
+            width: 100%;
+            background-color: #ffffff;
+            p{
+                  border-top: outset 1px;
+         }
+       }
+      }
+    .second_price{
+       background-color:$bluee;
+       width: 34%;
+       padding: 30px 0;
+       border-radius: 5px;
+      div{
+         width: 100%;
+         padding: 55px 35px;
+         h4{
+            color: $text-col;
+         }
+         h6{
+             &:nth-child(2){
+            color: $text-col;
+             }
+             &:nth-child(3){
+               color: $text-col;
+            }
+         }
+         p{
+            color: #c2e1ff;
+            border-top: solid 1px;     
+         }
+      }
+    }  
+   }
+}

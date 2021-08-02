@@ -1,0 +1,20 @@
+* {
+   box-sizing: border-box;
+   }
+   body{
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   font-family: 'Open Sans', sans-serif;
+   }
+   .container{
+   padding:0 15px;
+   max-width: 1250px;
+   margin: 0 auto;
+   }
+   .row{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   }
+   

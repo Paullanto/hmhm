@@ -1,0 +1,975 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* make sure to set some focus styles for accessibility */
+:focus {
+  outline: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+/**
+* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+*/
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  max-width: 100%;
+}
+
+/**
+* Prevent modern browsers from displaying `audio` without controls.
+* Remove excess height in iOS 5 devices.
+*/
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+* Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+* Known issue: no IE 6 support.
+*/
+[hidden] {
+  display: none;
+}
+
+/**
+* 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+*    `em` units.
+* 2. Prevent iOS text size adjust after orientation change, without disabling
+*    user zoom.
+*/
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+* Address `outline` inconsistency between Chrome and other browsers.
+*/
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+* Improve readability when focused and also mouse hovered in all browsers.
+*/
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/**
+* 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+* 2. Improve image quality when scaled in IE 7.
+*/
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/**
+* Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+*/
+figure {
+  margin: 0;
+}
+
+/**
+* Correct margin displayed oddly in IE 6/7.
+*/
+form {
+  margin: 0;
+}
+
+/**
+* Define consistent border, margin, and padding.
+*/
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+* 1. Correct color not being inherited in IE 6/7/8/9.
+* 2. Correct text not wrapping in Firefox 3.
+* 3. Correct alignment displayed oddly in IE 6/7.
+*/
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+}
+
+/**
+* 1. Correct font size not being inherited in all browsers.
+* 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+*    and Chrome.
+* 3. Improve appearance and consistency in all browsers.
+*/
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/**
+* Address Firefox 3+ setting `line-height` on `input` using `!important` in
+* the UA stylesheet.
+*/
+button,
+input {
+  line-height: normal;
+}
+
+/**
+* Address inconsistent `text-transform` inheritance for `button` and `select`.
+* All other form control elements do not inherit `text-transform` values.
+* Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+* Correct `select` style inheritance in Firefox 4+ and Opera.
+*/
+button,
+select {
+  text-transform: none;
+}
+
+/**
+* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+*    and `video` controls.
+* 2. Correct inability to style clickable `input` types in iOS.
+* 3. Improve usability and consistency of cursor style between image-type
+*    `input` and others.
+* 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+*    Known issue: inner spacing remains in IE 6.
+*/
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+/**
+* Re-set default cursor for disabled elements.
+*/
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+* 1. Address box sizing set to content-box in IE 8/9.
+* 2. Remove excess padding in IE 8/9.
+* 3. Remove excess padding in IE 7.
+*    Known issue: excess padding remains in IE 6.
+*/
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+/**
+* 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+* 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+*    (include `-moz` to future-proof).
+*/
+input[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+* Remove inner padding and search cancel button in Safari 5 and Chrome
+* on OS X.
+*/
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+* Remove inner padding and border in Firefox 3+.
+*/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+* 1. Remove default vertical scrollbar in IE 6/7/8/9.
+* 2. Improve readability and alignment in all browsers.
+*/
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/**
+* Remove most spacing between table cells.
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  padding: 0 15px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.message, .price .row p {
+  font-family: Lato;
+  font-size: 13.5px;
+  line-height: 40px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #b5bbc1;
+}
+
+.about_us .right button, .baner .container form button {
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+.baner .container form label input {
+  padding: 10px 10px 10px 32px;
+  background-color: #ffffff;
+  border-style: none;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 400;
+  height: 100%;
+  color: #a9a9a9;
+}
+
+.baner .container form label.phone:after, .baner .container form label.email:after, .baner .container form label.fullName:after {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 8px;
+}
+
+.logo {
+  padding: 14px 0;
+}
+
+.list_one {
+  padding: 30px 0;
+}
+.list_one ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list_one ul li {
+  list-style: none;
+}
+.list_one ul li a {
+  text-decoration: none;
+  padding: 10px 20px;
+  font-family: Lato;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 3px;
+  color: #868686;
+}
+.list_one ul li a:hover {
+  background-color: #ffbb42;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 950px;
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    max-width: 942px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 717px;
+  }
+  .container .list_one ul li a {
+    padding: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    max-width: 450px;
+  }
+  .container .logo img {
+    width: 230%;
+  }
+  .container .list_one {
+    padding: 7px 0;
+  }
+  .container .list_one ul {
+    display: block;
+  }
+  .container .list_one ul li a {
+    font-size: 18px;
+  }
+}
+.baner {
+  background-color: #709dca;
+  position: relative;
+  padding-bottom: 350px;
+  padding-top: 100px;
+}
+.baner .container {
+  text-align: center;
+}
+.baner .container h1 {
+  font-size: 35px;
+  line-height: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: white;
+  padding-bottom: 10px;
+}
+.baner .container p {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: normal;
+  color: white;
+  padding-bottom: 40px;
+}
+.baner .container form {
+  display: flex;
+  justify-content: space-between;
+}
+.baner .container form label {
+  width: 25%;
+}
+.baner .container form label.fullName {
+  position: relative;
+}
+.baner .container form label.fullName:after {
+  content: "";
+}
+.baner .container form label.fullName:hover:after {
+  color: #e7ad48;
+}
+.baner .container form label.email {
+  position: relative;
+}
+.baner .container form label.email:after {
+  content: "";
+}
+.baner .container form label.email:hover:after {
+  color: #e7ad48;
+}
+.baner .container form label.phone {
+  position: relative;
+}
+.baner .container form label.phone:after {
+  content: "";
+}
+.baner .container form label.phone:hover:after {
+  color: #e7ad48;
+}
+.baner .container form label input {
+  width: 100%;
+}
+.baner .container form button {
+  border: 1px solid transparent;
+  color: white;
+  background-color: #ffbb42;
+  width: 19%;
+  height: 46px;
+}
+.baner .container div {
+  display: flex;
+  justify-content: center;
+}
+.baner .container div img {
+  bottom: -14%;
+  position: absolute;
+}
+
+@media (max-width: 1000px) {
+  .baner {
+    padding-bottom: 250px;
+  }
+  .baner .container {
+    max-width: 950px;
+  }
+  .baner .container div img {
+    width: 50%;
+  }
+}
+@media (max-width: 992px) {
+  .baner .container {
+    max-width: 942px;
+  }
+  .baner .container h1 {
+    font-size: 200%;
+  }
+  .baner .container p {
+    font-size: 90%;
+  }
+}
+@media (max-width: 767px) {
+  .baner {
+    padding-bottom: 200px;
+  }
+  .baner .container {
+    max-width: 717px;
+  }
+  .baner .container form input, .baner .container form button {
+    width: 70%;
+    margin-bottom: 5px;
+  }
+  .baner .container div img {
+    width: 65%;
+  }
+}
+@media (max-width: 500px) {
+  .baner {
+    padding-bottom: 150px;
+  }
+  .baner .container {
+    max-width: 450px;
+  }
+  .baner .container div img {
+    bottom: -5%;
+  }
+  .baner .container h1 {
+    font-size: 167%;
+  }
+  .baner .container p {
+    line-height: 20px;
+    font-size: 80%;
+  }
+}
+.service {
+  padding-top: 200px;
+  padding-bottom: 120px;
+}
+.service .container .service_text {
+  text-align: center;
+  padding-bottom: 90px;
+}
+.service .container .service_text h2 {
+  font-size: 35px;
+  line-height: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #394b50;
+  padding-bottom: 10px;
+}
+.service .container .service_text p {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #394b50;
+}
+.service .container .first_service {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 60px;
+}
+.service .container .first_service .text {
+  width: 90%;
+  padding-left: 10px;
+}
+.service .container .first_service .text h6 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #394b50;
+  padding-bottom: 10px;
+  font-family: Lato;
+}
+.service .container .first_service .text p {
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #7b7b7b;
+  width: 90%;
+}
+.service .container .first_service .images {
+  width: 10%;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 950px;
+  }
+}
+@media (max-width: 992px) {
+  .service {
+    padding-bottom: 60px;
+  }
+  .service .container {
+    max-width: 942px;
+  }
+  .service .container .row .first_service .images img {
+    width: 100%;
+    height: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .service .container {
+    max-width: 717px;
+  }
+  .service .container .row .first_service {
+    width: 100%;
+  }
+  .service .container .row .first_service .images img {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  .service {
+    padding: 50px 0;
+  }
+  .service .container {
+    max-width: 500px;
+  }
+  .service .container .row .first_service .images img {
+    width: 100%;
+  }
+  .service .container .row .first_service .text {
+    padding-left: 20px;
+  }
+}
+.about_us {
+  background-color: #ffbb42;
+  position: relative;
+  height: 520px;
+}
+.about_us::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("../img/rectangle_5_copy_203.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.about_us::after {
+  content: "";
+  width: 50%;
+}
+.about_us .left,
+.about_us .right {
+  width: 50%;
+}
+.about_us .right {
+  padding-top: 120px;
+  padding-left: 70px;
+}
+.about_us .right h3 {
+  font-size: 30px;
+  line-height: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+.about_us .right p {
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  width: 86%;
+  padding: 23px 0;
+}
+.about_us .right button {
+  border: 1px solid #e7ad48;
+  color: #ffffff;
+  background-color: transparent;
+  padding: 10px 20px;
+}
+
+@media (max-width: 1000px) {
+  .about_us .container {
+    max-width: 950px;
+  }
+}
+@media (max-width: 992px) {
+  .about_us .container {
+    max-width: 942px;
+  }
+}
+@media (max-width: 767px) {
+  .about_us {
+    height: 350px;
+  }
+  .about_us::before {
+    display: none;
+  }
+  .about_us .container {
+    max-width: 717px;
+  }
+  .about_us .container .row .left {
+    display: none;
+  }
+  .about_us .container .row .right {
+    width: 100%;
+    padding-top: 50px;
+  }
+}
+@media (max-width: 500px) {
+  .about_us {
+    height: 400px;
+  }
+  .about_us .container {
+    max-width: 500px;
+  }
+  .about_us .container .row .right {
+    padding-top: 60px;
+  }
+  .about_us .container .row .right p {
+    line-height: 18px;
+  }
+}
+.price {
+  background-color: #e7edf3;
+  padding: 145px 0;
+}
+.price .price_text {
+  text-align: center;
+  padding-bottom: 50px;
+}
+.price .price_text h2 {
+  font-size: 35px;
+  line-height: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  color: #394b50;
+  padding-bottom: 10px;
+}
+.price .price_text p {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #75888d;
+}
+.price .row {
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+.price .row button {
+  width: 131px;
+  height: 42px;
+  background-color: #ffbb42;
+  font-family: Lato;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+  border-style: none;
+  margin-top: 35px;
+}
+.price .row h4 {
+  font-size: 25px;
+  line-height: 22px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #818b95;
+  padding-bottom: 40px;
+}
+.price .row h6 {
+  padding-bottom: 40px;
+}
+.price .row h6 span {
+  font-size: 35px;
+  vertical-align: super;
+}
+.price .row h6:nth-child(2) {
+  font-family: Lato;
+  font-size: 60px;
+  line-height: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffbb42;
+  padding-bottom: 20px;
+}
+.price .row h6:nth-child(3) {
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: none;
+  color: #818b95;
+}
+.price .row p {
+  color: #b5bbc1;
+}
+.price .row .one_price,
+.price .row .thrid_price {
+  width: 33%;
+  padding: 30px 0;
+}
+.price .row .one_price div,
+.price .row .thrid_price div {
+  padding: 55px 35px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #ffffff;
+}
+.price .row .one_price div p,
+.price .row .thrid_price div p {
+  border-top: outset 1px;
+}
+.price .row .second_price {
+  background-color: #709dca;
+  width: 34%;
+  padding: 30px 0;
+  border-radius: 5px;
+}
+.price .row .second_price div {
+  width: 100%;
+  padding: 55px 35px;
+}
+.price .row .second_price div h4 {
+  color: white;
+}
+.price .row .second_price div h6:nth-child(2) {
+  color: white;
+}
+.price .row .second_price div h6:nth-child(3) {
+  color: white;
+}
+.price .row .second_price div p {
+  color: #c2e1ff;
+  border-top: solid 1px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 950px;
+  }
+}
+@media (max-width: 992px) {
+  .price {
+    padding: 60px 0;
+  }
+
+  .container {
+    max-width: 942px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 717px;
+  }
+  .container .row .one_price,
+.container .row .thrid_price,
+.container .row .second_price {
+    width: 70%;
+  }
+  .container .row .second_price {
+    padding: 0 0;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    max-width: 500px;
+  }
+  .container .row .one_price,
+.container .row .thrid_price,
+.container .row .second_price {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

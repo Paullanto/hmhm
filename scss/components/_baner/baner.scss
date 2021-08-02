@@ -1,0 +1,59 @@
+.baner {
+   background-color: #709dca;
+   position: relative;
+   padding-bottom: 350px;
+   padding-top: 100px;
+
+     .container{
+        text-align: center;
+        
+        h1{
+          @include text ($text-col);
+         }
+        p{
+          @include text_P ($text-col);
+          padding-bottom: 40px;
+        }
+        form{
+          display: flex;
+          justify-content: space-between;
+
+           label {
+             width: 25%;
+
+             &.fullName {
+               @include labelDefault("\f4d7");
+             }
+
+             &.email {
+               @include labelDefault("\f32c");
+             }
+
+             &.phone {
+               @include labelDefault("\f5b4");
+             }
+
+              input {
+               @extend %defaultInput;
+                width: 100%;
+              }
+           }
+           button{
+             @include btn(transparent, $text-col, $bg-col);
+             width: 19%;
+             height: 46px;
+           }
+        }
+       div{
+          
+          display: flex;
+          justify-content: center;
+          
+          img{
+            bottom: -14%;
+            position: absolute;
+          
+          }
+      }
+    }
+}

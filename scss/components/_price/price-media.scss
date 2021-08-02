@@ -1,0 +1,43 @@
+@media (max-width: 1000px){    
+   .container{
+         max-width: 950px;
+   }
+}
+@media (max-width: 992px){    
+   .price{
+         padding: 60px 0;
+      }
+      .container{
+            max-width: 942px;
+      }
+    
+}
+@media (max-width: 767px){    
+   .container{
+         max-width: 717px;
+         .row{
+            .one_price,
+            .thrid_price,
+            .second_price{
+               width: 70%;
+
+            }
+            .second_price{
+               padding: 0 0;
+            }
+         }
+   }
+}
+@media (max-width: 500px){    
+   .container{
+         max-width: 500px;
+         .row{
+            .one_price,
+            .thrid_price,
+            .second_price{
+               width: 100%;
+            }
+         }
+   }
+
+}

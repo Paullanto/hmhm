@@ -1,0 +1,60 @@
+.about_us{
+   background-color: $bg-col;
+   position: relative;
+   height: 520px;
+    
+   &::before{
+      content: '';
+      position: absolute;
+      display: block;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image:url("../img/rectangle_5_copy_203.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+
+      
+   }
+   &::after{
+      content: '';
+      width: 50%;
+   }
+  
+   .left,
+   .right{
+      width: 50%;
+   }
+
+   .right{
+      padding-top: 120px;
+      padding-left: 70px;
+      h3{
+         font-size: 30px;
+         line-height: 22px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: -0.025em;
+          color: #ffffff;
+      }
+      p{
+         font-size: 13px;
+         line-height: 24px;
+         font-weight: 400;
+         color: #ffffff;
+         width: 86%;
+         padding: 23px 0;
+      }
+         button{
+            @include btn(#e7ad48, #ffffff, transparent);
+            padding: 10px 20px;
+        }
+   }
+
+
+   
+    
+   
+}
